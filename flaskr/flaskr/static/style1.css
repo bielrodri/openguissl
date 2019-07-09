@@ -1,0 +1,73 @@
+html, body{
+	width:100%;
+	margin: 0%;
+	background:lavender;
+	font-family: 'Bitter', serif;
+	color:black;
+}
+
+body{
+	font-size: 15px;
+	float:left;
+}
+
+header
+{
+	width:100%;
+	background:rgba(0,0,0,0.85);
+	font-size: 14px;
+	position:fixed;
+	z-index:1;
+	text-align: center;
+}
+
+.menu
+{	
+	display: inline-block;
+	width:100%;
+}
+.menu a{
+	display: inline-block;
+	text-decoration:none;
+	color:lavender;
+	padding: 11px;
+}
+
+.menu a:hover{
+	background:lavender;
+	color: black;
+}
+
+.menu a.active{
+	background:lavender;
+	color:black;
+}
+
+table{
+	
+	width:60%;
+    margin-top: 120px;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-bottom:80px;
+	text-align: left;
+	word-wrap: break-word;
+	background:white;
+	box-shadow: 10px 10px 20px grey;
+	border-collapse: collapse;
+}
+
+th {
+	background:rgba(0,0,0,0.85);
+    border-collapse: collapse;
+	padding:10px;
+	color:lavender;
+
+}
+
+
+td {
+    border-collapse: collapse;
+	padding:10px;
+	border-top: 2px solid lavender;
+}

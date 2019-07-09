@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='key.png') }}">
+        <title>OpenGUISSL</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+        
+    </head>
+    <body>
+        <header>	 
+            <div class="menu">
+                    <a href="{{ url_for('index') }}" >PÁGINA INICIAL</a>
+                    <a href="{{ url_for('cifrarFicheiro') }}">CIFRAR FICHEIRO</a>
+                    <a href="{{ url_for('gerarChaves') }}">GERAR PALAVRA-PASSE</a>
+                    <a href="{{ url_for('calcHash') }}">CÁLCULO DE HASH</a>
+                    <a href="{{ url_for('calcHMAC') }}">CÁLCULO DE HMAC</a>
+                    <a href="{{ url_for('getPubKey') }}" class="active">GERAR CHAVE RSA</a>
+                    <a href="{{ url_for('signFile') }}">ASSINATURA DIGITAL</a>
+            </div>	
+        </header>
+        <section>
+            <h2>OpenGUISSL</h2>
+            <h3>Selecione uma das opções:</h3>
+            <a href={{ url_for('genRSAkeys') }}>Gerar Par de Chaves RSA</a>
+            <a href={{ url_for('getPubKey') }} class="active">Obter Chave Pública RSA</a>
+            <h3>Obter Chave Pública RSA</h3>
+            <hr>
+            <form method=post enctype=multipart/form-data>
+            <p>
+                    <span>Nome do ficheiro de saída(a extensão é automática): </span>
+                    <input type=text id="txt" disabled="true" name=outName {% if outName %} value="{{ outName }}" {% endif %} required>
+            </p>        
+            <p>
+                <span style="font-size: small;">Ficheiro com a chave privada: </span>
+                <input type=file name=file {% if file %} value="{{ file }}" {% endif %} required>
+            </p>
+            <p>
+                <span>Marque para salvar arquivo, desmarque para apenas visualizar no browser: </span>
+                <input type=checkbox id="cbox" name=downloadFic value="downloadFic"  onchange="change()">
+            </p> 
+            <p>
+                <input type=submit value=Executar>
+            </p>      
+        </form>
+            {% if error %}
+                <p class=error>
+                <strong>Error:</strong> {{ error }}</p>
+            {% endif %}
+            {% for message in get_flashed_messages() %}
+                <div class=flash>{{ message }}</div>
+            {% endfor %}
+        </section>
+        <script>
+            function change()
+            {
+                var x = document.getElementById("cbox").checked;
+                if(x == false)
+                    document.getElementById("txt").disabled = true;
+                else
+                    document.getElementById("txt").disabled = false;
+            }
+        </script> 
+    </body>
+</html>

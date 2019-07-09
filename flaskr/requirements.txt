@@ -1,0 +1,17 @@
+asn1crypto==0.23.0
+cffi==1.11.2
+click==6.7
+cryptography==2.1.4
+enum34==1.1.6
+Flask==0.12.2
+Flask-WTF==0.14.2
+idna==2.6
+ipaddress==1.0.18
+itsdangerous==0.24
+Jinja2==2.10
+MarkupSafe==1.0
+pycparser==2.18
+pyOpenSSL==17.5.0
+six==1.11.0
+Werkzeug==0.12.2
+WTForms==2.1

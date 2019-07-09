@@ -1,0 +1,89 @@
+html, body{
+	width:100%;
+	margin: 0%;
+	background:lavender;
+	font-family: 'Bitter', serif;
+	color:black;
+}
+
+body{
+	font-size: 15px;
+	float:left;
+}
+
+header
+{
+	width:100%;
+	background:rgba(0,0,0,0.85);
+	font-size: 14px;
+	position:fixed;
+	z-index:1;
+	text-align: center;
+}
+
+.menu
+{	
+	display: inline-block;
+	width:100%;
+}
+.menu a{
+	display: inline-block;
+	text-decoration:none;
+	color:lavender;
+	padding: 11px;
+}
+
+.menu a:hover{
+	background:lavender;
+	color: black;
+}
+
+.menu a.active{
+	background:lavender;
+	color:black;
+}
+
+section{
+	width:54%;
+    margin-top: 120px;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-bottom:80px;
+	text-align: left;
+	background:white;
+	padding:3%;
+	box-shadow: 10px 10px 20px grey;
+	word-wrap: break-word;
+}
+
+section a{
+	display: inline-block;
+	text-decoration:none;
+	color:black;
+	padding: 11px;
+}
+
+section a:hover{
+	background:rgba(0,0,0,0.85);
+	color: lavender;
+}
+
+section a.active{
+	background:rgba(0,0,0,0.85);
+	color:lavender;
+}
+
+hr {
+    
+    border: 1px solid lavender;
+}
+
+.flash {
+    background: #cee5F5;
+    padding: 0.5em;
+    border: 1px solid #aacbe2;
+}
+.error {
+    background: black;
+    padding: 0.5em;
+}

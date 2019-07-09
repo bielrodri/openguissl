@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='key.png') }}">
+        <title>OpenGUISSL</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+        
+    </head>
+    <body>
+        <header>	 
+            <div class="menu">
+                    <a href="{{ url_for('index') }}" >PÁGINA INICIAL</a>
+                    <a href="{{ url_for('cifrarFicheiro') }}">CIFRAR FICHEIRO</a>
+                    <a href="{{ url_for('gerarChaves') }}">GERAR PALAVRA-PASSE</a>
+                    <a href="{{ url_for('calcHash') }}">CÁLCULO DE HASH</a>
+                    <a href="{{ url_for('calcHMAC') }}">CÁLCULO DE HMAC</a>
+                    <a href="{{ url_for('genRSAkeys') }}" class="active">GERAR CHAVE RSA</a>
+                    <a href="{{ url_for('signFile') }}">ASSINATURA DIGITAL</a>
+            </div>	
+        </header>
+        <section>
+            <h2>OpenGUISSL</h2>
+            <h3>Selecione uma das opções:</h3>
+            <a href={{ url_for('genRSAkeys') }} class="active">Gerar Par de Chaves RSA</a>
+            <a href={{ url_for('getPubKey') }}>Obter Chave Pública RSA</a>
+            <h3>Gerar Par de Chaves RSA</h3>
+            <hr>
+            <form method=post enctype=multipart/form-data>
+                <p>
+                    <span>Nome do ficheiro de saída(a extensão é automática):</span>
+                    <input type=text name=outName {% if outName %} value="{{ outName }}" {% endif %} required>
+                </p>                
+                <input type=submit value=Executar>
+            </form>
+            {% if error %}
+                <p class=error>
+                <strong>Error:</strong> {{ error }}</p>
+            {% endif %}
+            {% for message in get_flashed_messages() %}
+                <div class=flash>{{ message }}</div>
+            {% endfor %}
+        </section>
+    </body>
+</html>

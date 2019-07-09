@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='key.png') }}">
+        <title>OpenGUISSL</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style1.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+    </head>
+    <body>
+        <header>	 
+            <div class="menu">
+                    <a href="{{ url_for('index') }}" class="active">PÁGINA INICIAL</a>
+                    <a href="{{ url_for('cifrarFicheiro') }}">CIFRAR FICHEIRO</a>
+                    <a href="{{ url_for('gerarChaves') }}">GERAR PALAVRA-PASSE</a>
+                    <a href="{{ url_for('calcHash') }}">CÁLCULO DE HASH</a>
+                    <a href="{{ url_for('calcHMAC') }}">CÁLCULO DE HMAC</a>
+                    <a href="{{ url_for('genRSAkeys') }}">GERAR CHAVE RSA</a>
+                    <a href="{{ url_for('signFile') }}">ASSINATURA DIGITAL</a>
+            </div>
+        </header>
+        <section>
+            <table>
+                <tr>
+                <th>FUNCIONALIDADES</th>
+                <th>ALGORITMOS OU MÉTODOS USADOS</th> 
+                </tr>
+                <tr>
+                <td><p>Cifrar e decifrar usando cifra de chave simétrica</p></td>
+                <td><p>AES256, DES-ECB, RC4</p></td> 
+                </tr>
+                <tr>
+                    <td><p>Gerar palavras-passes aleatórias</p></td>
+                    <td><p>BASE64, HEX</p></td> 
+                </tr>
+                <tr>
+                    <td><p>Cálculo de hash</p></td>
+                    <td><p>MD5, SHA1, SHA256</p></td> 
+                </tr>
+                <tr>
+                    <td><p>Cálculo de HMACS</p></td>
+                    <td><p>MD5, SHA1, SHA256</p></td> 
+                </tr>
+                <tr>
+                    <td><p>Gerar chaves RSA</p></td>
+                    <td><p>RSA</p></td> 
+                </tr>
+                <tr>
+                    <td><p>Assinaturas digitais(assinar e verificar)</p></td>
+                    <td><p>Chaves RSA e SHA256</p></td> 
+                </tr>
+            </table>
+          </section>
+    </body>
+</html>

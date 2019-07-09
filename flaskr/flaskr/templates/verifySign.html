@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">   
+		<link rel="shortcut icon" href="{{ url_for('static', filename='key.png') }}">
+        <title>OpenGUISSL</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+        
+    </head>
+    <body>
+        <header>	 
+            <div class="menu">
+                    <a href="{{ url_for('index') }}" >PÁGINA INICIAL</a>
+                    <a href="{{ url_for('cifrarFicheiro') }}">CIFRAR FICHEIRO</a>
+                    <a href="{{ url_for('gerarChaves') }}">GERAR PALAVRA-PASSE</a>
+                    <a href="{{ url_for('calcHash') }}">CÁLCULO DE HASH</a>
+                    <a href="{{ url_for('calcHMAC') }}">CÁLCULO DE HMAC</a>
+                    <a href="{{ url_for('genRSAkeys') }}">GERAR CHAVE RSA</a>
+                    <a href="{{ url_for('verifySign') }}" class="active">ASSINATURA DIGITAL</a>
+            </div>	
+        </header>
+        <section>
+            <h2>OpenGUISSL</h2>
+            <h3>Selecione uma das opções:</h3>
+            <a href={{ url_for('signFile') }}>Assinar Ficheiro Digitalmente</a>
+            <a href={{ url_for('verifySign') }} class="active">Verificar Assinatura</a>
+            <h3>Verificar Assinatura Digital</h3>
+            <hr>
+            <form method=post enctype=multipart/form-data>
+                <p>
+                    <span style="font-size: small;">Ficheiro com a chave pública: </span>
+                    <input type=file name=filePubKey {% if file %} value="{{ filePubKey }}" {% endif %} required>
+                </p>    
+                <p>
+                    <span style="font-size: small;">Ficheiro assinado: </span>
+                    <input type=file name=fileSig {% if file %} value="{{ fileSig }}" {% endif %} required>
+                </p>
+                <p>
+                        <span style="font-size: small;">Ficheiro original: </span>
+                        <input type=file name=fileToVerify {% if file %} value="{{ fileToVerify }}" {% endif %} required>
+                </p>
+                <p>
+                    <input type=submit value=Executar>
+                </p>               
+            </form>
+            {% if error %}
+                <p class=error>
+                <strong>Error:</strong> {{ error }}</p>
+            {% endif %}
+            {% for message in get_flashed_messages() %}
+                <div class=flash>{{ message }}</div>
+            {% endfor %}
+        </section>
+    </body>
+</html>
